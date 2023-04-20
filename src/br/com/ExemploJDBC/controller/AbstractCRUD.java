@@ -7,8 +7,7 @@ import java.util.ArrayList;
 
 public abstract class AbstractCRUD<T> {
 	
-	private final String URL = "jdbc:mysql://localhost/CLASSES";
-	//jdbc:oracle:thin:@hostname:port Number:databaseName
+	private final String URL = "jdbc:mysql://localhost/3222";
 	private final String USER = "root";
 	private final String PASSWORD = "root";
 	

@@ -17,9 +17,9 @@ public class Teste {
 			
 			// INSERT
 			Department d = new Department();
-			d.setNameDepartment("DPT. Comp");
-			d.setBuildingDepartment("Campus Sede");
-			d.setBudgetDepartment(18000.0);
+			d.setNameDepartment("Artes. Ciencias");
+			d.setBuildingDepartment("Campus Principal");
+			d.setNumberDepartment(18000.0);
 			
 			boolean res = crud.create(d);
 			
@@ -30,14 +30,14 @@ public class Teste {
 			// UPDATE
 			Department d = new Department();
 			d.setIdDepartment(2);
-			d.setNameDepartment("Departamento Comp");
-			d.setBuildingDepartment("Campus Sede");
-			d.setBudgetDepartment(180000.0);
+			d.setNameDepartment("Departamento Fisica");
+			d.setBuildingDepartment("Campus Principal");
+			d.setNumberDepartment(180000.0);
 			
 			boolean res11 = crud.update(d);
 			
 			if(res11) {
-				System.out.println("Operação realizada com sucesso");
+				System.out.println("Feito");
 			} else {
 				System.out.println("Erro");
 			}
@@ -53,7 +53,6 @@ public class Teste {
 			}
 			System.out.println(crud.close());
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

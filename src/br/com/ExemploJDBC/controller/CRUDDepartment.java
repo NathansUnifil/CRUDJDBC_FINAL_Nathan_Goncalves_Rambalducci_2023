@@ -13,12 +13,12 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 	public boolean create(T o) throws SQLException {
 		Department dep = (Department) o;
 		String query = 
-				"INSERT INTO department (dept_name, building, budget) "
+				"INSERT INTO department (dept_name, building, dept_numb) "
 				+ "VALUES (?, ?, ?)";
 		PreparedStatement stmt = super.connection.prepareStatement(query);
 		stmt.setString(1, dep.getNameDepartment());
 		stmt.setString(2, dep.getBuildingDepartment());
-		stmt.setDouble(3, dep.getBudgetDepartment());
+		stmt.setDouble(3, dep.getNumberDepartment());
 		int rows = stmt.executeUpdate();
 		if(rows > 0) {
 			return true;
@@ -40,12 +40,12 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 	public boolean update(T o) throws SQLException {
 		Department dep = (Department) o;
 		String query = "UPDATE department "
-				+ "SET dept_name = ?, building = ?, budget = ? "
+				+ "SET dept_name = ?, building = ?, dept_numb = ? "
 				+ "WHERE dept_id = ?";
 		PreparedStatement stmt = super.connection.prepareStatement(query);
 		stmt.setString(1, dep.getNameDepartment());
 		stmt.setString(2, dep.getBuildingDepartment());
-		stmt.setDouble(3, dep.getBudgetDepartment());
+		stmt.setDouble(3, dep.getNumberDepartment());
 		stmt.setInt(4, dep.getIdDepartment());
 		int rows = stmt.executeUpdate();
 		return rows > 0;
@@ -64,7 +64,7 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 		dep.setIdDepartment(result.getInt(1));
 		dep.setNameDepartment(result.getString(2));
 		dep.setBuildingDepartment(result.getString(3));
-		dep.setBudgetDepartment(result.getDouble(4));
+		dep.setNumberDepartment(result.getDouble(4));
 		return (T) dep;
 	}
 
@@ -79,7 +79,7 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 			dep.setIdDepartment(result.getInt(1));
 			dep.setNameDepartment(result.getString(2));
 			dep.setBuildingDepartment(result.getString(3));
-			dep.setBudgetDepartment(result.getDouble(4));
+			dep.setNumberDepartment(result.getDouble(4));
 			departments.add(dep);
 		}
 		return (ArrayList<T>) departments;
