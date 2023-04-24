@@ -21,20 +21,20 @@ public class Teste {
 			d.setBuildingDepartment("Campus Principal");
 			d.setNumberDepartment(18000.0);
 			
-			boolean res = crud.create(d);
+			crud.create(d);
 			
 			// DELETE
-			boolean res1 = crud.delete(1);
+			crud.delete(1);
 			
 			
 			// UPDATE
-			Department d = new Department();
-			d.setIdDepartment(2);
-			d.setNameDepartment("Departamento Fisica");
-			d.setBuildingDepartment("Campus Principal");
-			d.setNumberDepartment(180000.0);
+			Department d1 = new Department();
+			d1.setIdDepartment(2);
+			d1.setNameDepartment("Departamento Fisica");
+			d1.setBuildingDepartment("Campus Principal");
+			d1.setNumberDepartment(180000.0);
 			
-			boolean res11 = crud.update(d);
+			boolean res11 = crud.update(d1);
 			
 			if(res11) {
 				System.out.println("Feito");
@@ -48,8 +48,8 @@ public class Teste {
 			
 			
 			ArrayList<Department> departments = crud.listAll();
-			for(Department d : departments) {
-				System.out.println(d.getNameDepartment());
+			for(Department d11 : departments) {
+				System.out.println(d11.getNameDepartment());
 			}
 			System.out.println(crud.close());
 		} catch (SQLException e) {

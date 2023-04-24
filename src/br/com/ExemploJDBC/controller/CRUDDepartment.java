@@ -52,6 +52,7 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 		
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T getById(int id) throws SQLException {
 		
@@ -82,6 +83,12 @@ public class CRUDDepartment<T> extends AbstractCRUD<T> {
 			dep.setNumberDepartment(result.getDouble(4));
 			departments.add(dep);
 		}
+		ArrayList<T> departments2 = extracted(departments);
+		return departments2;
+	}
+
+	@SuppressWarnings("unchecked")
+	private ArrayList<T> extracted(ArrayList<Department> departments) {
 		return (ArrayList<T>) departments;
 	}
 
